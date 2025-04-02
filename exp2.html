@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grading System</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="font-size: large; color: rgba(4, 3, 3, 0.744);">
+    <style>
+        body {
+            background-image: url(school.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <script>
+        function computeGrade() {
+            const name = document.S1.txtname.value;
+            const subject1 = parseFloat(document.S1.txtsubject1.value) || 0;
+            const subject2 = parseFloat(document.S1.txtsubject2.value) || 0;
+            const subject3 = parseFloat(document.S1.txtsubject3.value) || 0;
+            const subject4 = parseFloat(document.S1.txtsubject4.value) || 0;
+            const subject5 = parseFloat(document.S1.txtsubject5.value) || 0;
+
+            const average = (subject1 + subject2 + subject3 + subject4 + subject5) / 5;
+            document.S1.txtaverage.value = average.toFixed(2);
+
+            let grade;
+            if (average >= 90) {
+                grade = 'A';
+            } else if (average >= 80) {
+                grade = 'B';
+            } else if (average >= 70) {
+                grade = 'C';
+            } else if (average >= 60) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+            document.S1.txtgrade.value = grade;
+        }
+    </script>
+    <form name="S1">
+        <table border="7" height="700" width="900" align="center" style="background-color: #556c7249; border-color: #808080;">
+            <tr>
+                <td>
+                    <table border="5" height="700" width="600" style="background-color:#556c7249(36, 0, 95, 0.685);">
+                        <tr>
+                            <td>Student's Name</td>
+                            <td><input type="text" name="txtname" required></td>
+                        </tr>
+                        <tr>
+                            <td>Filipino</td>
+                            <td><input type="number" name="txtsubject1" required></td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td><input type="number" name="txtsubject2" required></td>
+                        </tr>
+                        <tr>
+                            <td>Math</td>
+                            <td><input type="number" name="txtsubject3" required></td>
+                        </tr>
+                        <tr>
+                            <td>PE</td>
+                            <td><input type="number" name="txtsubject4" required></td>
+                        </tr>
+                        <tr>
+                            <td>Araling Panlipunan</td>
+                            <td><input type="number" name="txtsubject5" required></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table border="5" height="700" width="600" style="background-color:#556c7249;">
+                        <tr>
+                            <td>Average Score</td>
+                            <td><input type="text" name="txtaverage" disabled></td>
+                        </tr>
+                        <tr>
+                            <td>Grade</td>
+                            <td><input type="text" name="txtgrade" disabled></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <input type="button" value="Compute" onclick="computeGrade()" style="background-color: #0000FF; color: white; width: 300px;">
+        </div>
+    </form>
+</body>
+</html>
